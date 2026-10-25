@@ -1,0 +1,489 @@
+/* =====================================================
+   extras.css  (import AFTER App.css; App.css stays unchanged)
+   Styles for the new React Router / form / toast /
+   dropdown / tabs / pagination / API features.
+===================================================== */
+
+/* ---------- Links styled like the old buttons ---------- */
+a.nav-item,
+a.text-btn,
+a.primary-btn,
+a.wide-secondary-btn,
+.transaction-name a {
+  text-decoration: none;
+}
+
+a.text-btn {
+  display: inline-block;
+}
+
+.transaction-name a {
+  color: inherit;
+}
+
+.transaction-name a:hover strong {
+  text-decoration: underline;
+}
+
+/* ---------- Auth page on a light panel ---------- */
+.auth-panel {
+  background: var(--cream);
+}
+
+/* ---------- Reusable Field + validation ---------- */
+.field {
+  min-width: 0;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #62677c;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  border-color: var(--red) !important;
+}
+
+.field-error {
+  margin: -9px 0 14px;
+  color: #a8323d;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.budget-form .field-error {
+  margin: 8px 0 0;
+}
+
+.budget-form .primary-btn {
+  margin-top: 14px;
+}
+
+.budget-form .field input {
+  margin: 0;
+}
+
+/* ---------- Toast notifications ---------- */
+.toast-stack {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(360px, calc(100vw - 36px));
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 14px;
+  color: #fff;
+  background: var(--navy);
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  font-size: 13px;
+  font-weight: 600;
+  animation: modalUp 0.2s ease;
+}
+
+.toast-success {
+  border-left-color: #3ca27d;
+}
+
+.toast-info {
+  border-left-color: #6c8ad6;
+}
+
+.toast-error {
+  border-left-color: var(--red);
+}
+
+.toast button {
+  color: #aab0c6;
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.toast button:hover {
+  color: #fff;
+}
+
+/* ---------- Dropdown ---------- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 150px;
+  height: 42px;
+  padding: 0 12px;
+  color: #42465a;
+  background: #fff;
+  border: 1px solid #e6e8f0;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.dropdown-trigger:hover {
+  border-color: #cbb276;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 30;
+  min-width: 100%;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #e6e8f0;
+  border-radius: 10px;
+  box-shadow: 0 14px 30px rgba(20, 24, 46, 0.18);
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 9px 10px;
+  color: #42465a;
+  text-align: left;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.dropdown-menu button:hover {
+  background: #f5f2ea;
+}
+
+.dropdown-menu button.selected {
+  color: #8a6a24;
+  background: #fbf3df;
+  font-weight: 700;
+}
+
+.transaction-tools {
+  flex-wrap: wrap;
+}
+
+.transaction-tools .search-box {
+  min-width: 200px;
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  margin: 0 0 18px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  background: #efebe1;
+  border-radius: 10px;
+}
+
+.analytics-page .tabs {
+  margin-top: 28px;
+}
+
+.tab {
+  padding: 8px 14px;
+  color: #6c7186;
+  white-space: nowrap;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+.tab.active {
+  color: var(--ink);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Pagination / infinite scroll ---------- */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.pagination .secondary-btn {
+  min-height: 34px;
+  padding: 0 12px;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 4px;
+}
+
+/* ---------- Loading + error states ---------- */
+.spinner-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 160px;
+  color: #7d8296;
+  font-size: 14px;
+}
+
+.spendly-app + .spinner-block,
+body > #root > .spinner-block {
+  min-height: 100vh;
+  color: #b4bbd0;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #e1dccd;
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px;
+  color: #a8323d;
+  background: var(--red-light);
+  border: 1px solid #f6dddd;
+  border-radius: 12px;
+}
+
+.error-box p {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+/* ---------- Transaction detail (dynamic route) ---------- */
+.detail-title {
+  margin-top: 14px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 28px;
+}
+
+.detail-amount {
+  margin: 6px 0 22px;
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.detail-grid > div {
+  padding: 14px;
+  background: #f5f2ea;
+  border-radius: 12px;
+}
+
+.detail-grid dt {
+  color: #8a8fa3;
+  font-size: 12px;
+}
+
+.detail-grid dd {
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+/* ---------- Currency rates (API page) ---------- */
+.rates-updated {
+  margin: 0;
+  font-size: 11px;
+}
+
+.rates-converter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  align-items: end;
+  gap: 14px;
+}
+
+.rates-converter .field input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  background: #fff;
+  border: 1px solid #e6e8f0;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
+.rates-converter .dropdown-trigger {
+  width: 100%;
+}
+
+.rates-result {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 14px;
+  color: var(--ink);
+  background: #fbf3df;
+  border-radius: 9px;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.rate-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: #f5f2ea;
+  border-radius: 12px;
+}
+
+.rate-tile span {
+  color: #8a8fa3;
+  font-size: 12px;
+}
+
+.rate-tile strong {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+/* ---------- 404 ---------- */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 100vh;
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+  background: #0a1020;
+}
+
+.not-found-code {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.not-found h1 {
+  font-family: var(--serif);
+  font-size: 30px;
+}
+
+.not-found p {
+  color: #b4bbd0;
+  font-size: 14px;
+}
+
+.not-found .primary-btn {
+  margin-top: 12px;
+  color: #1a1405;
+  background: linear-gradient(135deg, #e6cb8c, #c9a04e);
+}
+
+/* ---------- Responsive additions ---------- */
+@media (max-width: 950px) {
+  .rates-converter {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .toast-stack {
+    top: auto;
+    right: 14px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .transaction-tools .dropdown,
+  .transaction-tools .dropdown-trigger {
+    width: 100%;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pagination {
+    gap: 6px;
+  }
+
+  .table-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* 6 bottom-nav items: keep labels small */
+  .nav-label {
+    font-size: 9px;
+  }
+}
+
+/* ---------- Print: hide toasts ---------- */
+@media print {
+  .toast-stack {
+    display: none !important;
+  }
+}
